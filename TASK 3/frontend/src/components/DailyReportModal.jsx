@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, FileText, Calendar, Download, Loader2, AlertCircle } from 'lucide-react';
 import { generateDailyReportPDF } from '../utils/pdfGenerator';
 
-const DailyReportModal = ({ isOpen, onClose, currencySymbol = '$', apiBaseUrl = 'http://localhost:5000/api' }) => {
+const DailyReportModal = ({ isOpen, onClose, token, currencySymbol = '$', apiBaseUrl = 'http://localhost:5001/api' }) => {
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   const [dayTransactions, setDayTransactions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +15,11 @@ const DailyReportModal = ({ isOpen, onClose, currencySymbol = '$', apiBaseUrl = 
     const fetchDayTransactions = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(`${apiBaseUrl}/transactions?date=${selectedDate}`);
+        const response = await fetch(`${apiBaseUrl}/transactions?date=${selectedDate}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
         const data = await response.json();
         if (data.success) {
           setDayTransactions(data.data);

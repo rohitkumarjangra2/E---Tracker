@@ -7,13 +7,8 @@ const Budget = require('../models/Budget');
 // @access  Private
 exports.getTransactions = async (req, res) => {
   try {
-<<<<<<< HEAD
-    const { type, category, search, sortBy, order } = req.query;
-    let query = { user: req.user.id };
-=======
     const { type, category, search, sortBy, order, date } = req.query;
-    let query = {};
->>>>>>> eebd3c1e0c744be0709425d94c4fea00d8c41cef
+    let query = { user: req.user.id };
 
     // Filter by type
     if (type && type !== 'all') {

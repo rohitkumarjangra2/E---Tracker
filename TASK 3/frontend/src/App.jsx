@@ -10,27 +10,21 @@ import {
   DollarSign,
   Plus,
   Coins,
-<<<<<<< HEAD
   LogOut,
   Sparkles,
-  Dna
-=======
+  Dna,
   FileText
->>>>>>> eebd3c1e0c744be0709425d94c4fea00d8c41cef
 } from 'lucide-react';
 import Dashboard from './components/Dashboard';
 import TransactionList from './components/TransactionList';
 import TransactionForm from './components/TransactionForm';
 import BudgetSettings from './components/BudgetSettings';
-<<<<<<< HEAD
 import SpendingAdvisor from './components/SpendingAdvisor';
 import FinancialDNA from './components/FinancialDNA';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import { useAuth } from './context/AuthContext';
-=======
 import DailyReportModal from './components/DailyReportModal';
->>>>>>> eebd3c1e0c744be0709425d94c4fea00d8c41cef
 
 const API_BASE_URL = 'http://localhost:5001/api';
 
@@ -407,7 +401,6 @@ const App = () => {
           </li>
 
           <li 
-<<<<<<< HEAD
             className={`nav-item ${activeView === 'dna' ? 'active' : ''}`}
             onClick={() => setActiveView('dna')}
           >
@@ -421,7 +414,9 @@ const App = () => {
           >
             <Sparkles size={18} style={{ color: 'var(--color-purple)' }} />
             <span>AI Advisor</span>
-=======
+          </li>
+
+          <li 
             className="nav-item"
             style={{ 
               marginTop: '1.25rem', 
@@ -434,7 +429,6 @@ const App = () => {
           >
             <FileText size={18} style={{ color: 'var(--color-primary)' }} />
             <span style={{ fontWeight: 600 }}>Daily Report</span>
->>>>>>> eebd3c1e0c744be0709425d94c4fea00d8c41cef
           </li>
         </nav>
 
@@ -532,6 +526,7 @@ const App = () => {
         onClose={() => setIsReportModalOpen(false)}
         currencySymbol={currency}
         apiBaseUrl={API_BASE_URL}
+        token={token}
       />
     </div>
   );
