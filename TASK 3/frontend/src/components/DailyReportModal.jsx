@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, FileText, Calendar, Download, Loader2, AlertCircle } from 'lucide-react';
 import { generateDailyReportPDF } from '../utils/pdfGenerator';
 
-const DailyReportModal = ({ isOpen, onClose, token, currencySymbol = '$', apiBaseUrl = 'http://localhost:5001/api' }) => {
+const DailyReportModal = ({ isOpen, onClose, token, currencySymbol = '$', apiBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5001/api' }) => {
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   const [dayTransactions, setDayTransactions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);

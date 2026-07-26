@@ -21,7 +21,7 @@ const SpendingAdvisor = ({ currencySymbol }) => {
   const [regenerating, setRegenerating] = useState(false);
   const token = localStorage.getItem('token');
 
-  const API_BASE_URL = 'http://localhost:5001/api';
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
 
   useEffect(() => {
     fetchAdvice();
