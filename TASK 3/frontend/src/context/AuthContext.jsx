@@ -77,6 +77,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Signup/Register handler
+  // TODO: Add validation
   const signup = async (username, email, password) => {
     try {
       const response = await fetch(`${API_URL}/signup`, {
