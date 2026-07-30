@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
           const userData = await response.json();
           setUser(userData);
         } else {
-          // Token expired or invalid
+          //  when user is not logged in, logout
           logout();
         }
       } catch (error) {
