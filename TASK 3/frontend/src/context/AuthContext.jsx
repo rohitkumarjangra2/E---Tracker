@@ -49,6 +49,7 @@ export const AuthProvider = ({ children }) => {
     fetchUser();
   }, [token]);
 
+  // Check if user is logged in
   // Login handler
   const login = async (email, password) => {
     try {
